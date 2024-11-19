@@ -1,0 +1,63 @@
+from abc import ABC, abstractmethod
+
+# Clase abstracta Vehiculo
+class Vehiculo(ABC):
+    @abstractmethod
+    def obtener_tipo(self):
+        pass
+    
+    @abstractmethod
+    def obtener_numero_ruedas(self):
+        pass
+
+# Clase Automovil que hereda de Vehiculo
+class Automovil(Vehiculo):
+    def obtener_tipo(self):
+        return "Automóvil"
+
+    def obtener_numero_ruedas(self):
+        return 4
+
+# Clase SUV que hereda de Automovil
+class SUV(Automovil):
+    def obtener_tipo(self):
+        return "SUV"
+
+    def obtener_numero_ruedas(self):
+        return 4  # Un SUV normalmente tiene 4 ruedas
+
+# Clase Sedan que hereda de Automovil
+class Sedan(Automovil):
+    def obtener_tipo(self):
+        return "Sedán"
+
+    def obtener_numero_ruedas(self):
+        return 4  # Un sedán también tiene 4 ruedas
+
+# Clase Motocicleta que hereda de Vehiculo
+class Motocicleta(Vehiculo):
+    def obtener_tipo(self):
+        return "Motocicleta"
+
+    def obtener_numero_ruedas(self):
+        return 2  # Una motocicleta tiene 2 ruedas
+
+# Clase Camion que hereda de Vehiculo
+class Camion(Vehiculo):
+    def obtener_tipo(self):
+        return "Camión"
+
+    def obtener_numero_ruedas(self):
+        return 6  # Un camión normalmente tiene más ruedas
+
+# Crear instancias de cada clase y demostrar cómo funcionan
+vehiculos = [
+    SUV(),
+    Sedan(),
+    Motocicleta(),
+    Camion()
+]
+
+# Mostrar el tipo y número de ruedas de cada vehículo
+for vehiculo in vehiculos:
+    print(f"{vehiculo.obtener_tipo()} tiene {vehiculo.obtener_numero_ruedas()} ruedas.")
